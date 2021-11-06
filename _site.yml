@@ -1,0 +1,17 @@
+name: "."
+title: "mfeo"
+description: |
+  mfeo
+output_dir: "docs"
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+    - text: "Blog"      # add
+      href: blog.html   # add
+      title: "Blog"  # any name you want here
+listing: posts # do this exactly
+output: distill::distill_article
+site: distill::distill_website

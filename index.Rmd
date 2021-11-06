@@ -1,0 +1,21 @@
+---
+title: "Tracy Morgan"
+image: "SamplePic.jpg"
+links:
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/alisonpresmaneshill/"
+  - label: Twitter
+    url: "https://twitter.com/apreshill"
+  - label: GitHub
+    url: "https://github.com/apreshill"
+  - label: ORCID iD
+    url: "https://orcid.org/0000-0002-8082-1890"
+site: distill::distill_website
+output:
+  postcards::trestles
+  
+---
+ 
+I am a classically trained data scientist living in the San Francisco Bay Area. 
+Currently I work on the Oculus team at Facebook. I love talking about baseball, 
+true crime podcasts, and causal inference.
