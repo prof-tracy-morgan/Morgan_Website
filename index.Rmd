@@ -1,6 +1,6 @@
 ---
 title: "Tracy Morgan"
-image: "SamplePic.jpg"
+image: "TracyMorgan.jpg"
 links:
   - label: LinkedIn
     url: "https://www.linkedin.com/in/alisonpresmaneshill/"
