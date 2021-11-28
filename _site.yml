@@ -1,7 +1,7 @@
 name: "."
-title: "Welcome to My Website!  "
+title: "Welcome to My Website!"
 description: |
-  mfeo
+  Welcome
 output_dir: "docs"
 navbar:
   right:
