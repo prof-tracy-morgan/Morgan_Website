@@ -1,19 +1,20 @@
 ---
 title: "Tracy Morgan"
-image: "Tracy Morgan.jpg"
+image: "TracyMorgan.jpg"
 links:
-  - label: LinkedIn
-    url: "https://www.linkedin.com/in/alisonpresmaneshill/"
-  - label: Twitter
-    url: "https://twitter.com/apreshill"
-  - label: GitHub
-    url: "https://github.com/apreshill"
-  - label: ORCID iD
-    url: "https://orcid.org/0000-0002-8082-1890"
-site: distill::distill_website
+  - label: linkedin
+    url: "https://www.linkedin.com/in/tracy-morgan-3917915/"
+    
+description: |
+  A new article created using the Distill format.
+
 output:
-  postcards::trestles
-  
+  postcards::jolla
+site: distill::distill_website
+
 ---
- 
-I am an Accounting and Business Instructor for Holmes Community College and Mississippi College.  
+
+
+
+
+
