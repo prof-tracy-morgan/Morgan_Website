@@ -1,15 +1,8 @@
 ---
-title: "Resume Assignment"
+title: "Resume"
 author: "Tracy Morgan"
-date: "8/31/2021"
-output:
-  html_document:
-    df_print: paged
-  html_documnet: default
-  pdf_document: default
-editor_options:
-  markdown:
-    wrap: 72
+date: "`r Sys.Date()`"
+output: distill::distill_article
 ---
 
 ```{r setup, include=FALSE}
