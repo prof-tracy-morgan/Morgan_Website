@@ -1,6 +1,6 @@
 ---
-title: "Tobi Burns"
-image: "t"
+title: "Tracy Morgan"
+image: "TracyMorgan.jpg"
 links:
   - label: LinkedIn
     url: "https://linkedin.com/"
