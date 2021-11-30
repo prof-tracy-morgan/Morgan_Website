@@ -1,6 +1,6 @@
 ---
 title: "Tracy Morgan"
-image: "SamplePic.jpg"
+image: "Tracy Morgan.jpg"
 links:
   - label: LinkedIn
     url: "https://www.linkedin.com/in/alisonpresmaneshill/"
@@ -16,6 +16,4 @@ output:
   
 ---
  
-I am a classically trained data scientist living in the San Francisco Bay Area. 
-Currently I work on the Oculus team at Facebook. I love talking about baseball, 
-true crime podcasts, and causal inference.
+I am an Accounting and Business Instructor for Holmes Community College and Mississippi College.  

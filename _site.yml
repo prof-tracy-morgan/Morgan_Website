@@ -1,7 +1,7 @@
 name: "."
-title: "mfeo"
+title: "Welcome to My Website "
 description: |
-  mfeo
+  website 
 output_dir: "docs"
 navbar:
   right:
@@ -9,6 +9,8 @@ navbar:
       href: index.html
     - text: "About"
       href: about.html
+    - text: "Resume"
+      href: Resume.html
     - text: "Blog"      # add
       href: blog.html   # add
       title: "Blog"  # any name you want here
