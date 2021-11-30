@@ -10,7 +10,7 @@ navbar:
     - text: "About"
       href: about.html
     - text: "Resume"
-      href: Resume.html
+      href: ResumeforWebsite.html
     - text: "Blog"      # add
       href: blog.html   # add
       title: "Blog"  # any name you want here
