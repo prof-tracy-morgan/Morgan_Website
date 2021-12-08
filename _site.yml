@@ -9,6 +9,8 @@ navbar:
       href: index.html
     - text: "About"
       href: about.html
+    - text: "R-Squared Challenged"
+      href: GoodnessofFit_RSquared.html
     - text: "Resume"
       href: ResumeforWebsite.html
     - text: "Blog"      # add
