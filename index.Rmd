@@ -7,7 +7,7 @@ links:
   - label: YouTube Channel
     url: "https://www.youtube.com/channel/UCKQxgI5MGaTo6VW0iSjF9QA"
   - label: Schedule an Appointment 
-    url:  "https://calendly.com/proftmorgan/advising-meeting"
+    url: "https://calendly.com/proftmorgan/advising-meeting"
     
     
 description: 

@@ -3,8 +3,8 @@ title: "RSquared Challenged!"
 
 description: R-squared does not measure goodness of fit. It can be arbitrarily low when the model is completely correct.
 author:
-  - name: Dr. Joshua O.S.Hunt, Mississippi State University
-          interpreted by Tracy Morgan  
+  - name: Lesson by Dr. Joshua O.S.Hunt, Mississippi State University
+          Interpreted by Tracy Morgan  
 date: "`r Sys.Date()`"
 output: distill::distill_article
 ---
@@ -54,8 +54,6 @@ mss/tss
 
 **Assertion:**  By making the variance (sigma squared) larger, we drive R-squared towards 0.  This is not good!  $$σ2$$
 
-
-
 This happens even when every assumption of the simple linear regression model is correct.
 ---
 We can demonstrate that this is a problem.  Let's make a function called r2.0 that will increase the variance and show how that affects R-squared.  "sig" represents our input and our function will make x values and y values wit sig (our input) being the standard deviation. This is how we can make the variance larger or smaller.  Then summary will pull up R-squared.  
@@ -84,7 +82,7 @@ plot(rout ~ sigmas, type="b")
 
 ```
 
-In summary, all we did was increase the standard deviation for a model and R-Squared changed dramatically.  This proves that is not always a measure of good fit.
+**In summary, all we did was increase the standard deviation for a model and R-Squared changed dramatically.  This proves that is not always a measure of good fit.**
 
 
 
