@@ -1,6 +1,7 @@
 ---
-title: "RSquared Challenged! "
-description: |R-squared does not measure goodness of fit. It can be arbitrarily low when the model is completely correct.
+title: "RSquared Challenged!"
+
+description: R-squared does not measure goodness of fit. It can be arbitrarily low when the model is completely correct.
 author:
   - name: Dr. Joshua O.S.Hunt, interpreted by Tracy Morgan  
 date: "`r Sys.Date()`"
@@ -10,7 +11,6 @@ output: distill::distill_article
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
 #### R-Squared works a bit like a grading system in stats.  The values of R-Squared range from 0 to 1.  Think of this like a 100%, if the R-Squared is higher (closer to 100%), then our model is doing a good job explaining the variation in our data.  If the number is lower, then our model is only explaining a lower percentage of the actual data Most programs will give you R-Squared as an output when running summary statistics becuase it is well-known as an important and accurate measurement.
 
 #### One theory combatting this belief is that R-Squared is not always a measure of good fit within a model.  This code and lesson is from Dr. Joshua O.S. Hunt of Mississippi State University.    
