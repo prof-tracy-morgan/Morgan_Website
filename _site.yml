@@ -1,5 +1,5 @@
 name: "Tracy Morgan"
-title: "Welcome to My Website "
+title: "Tracy Morgan "
 description: |
   website 
 output_dir: "docs"
@@ -7,7 +7,7 @@ navbar:
   right:
     - text: "Home"
       href: index.html
-    - text: "About"
+    - text: "About Me"
       href: about.html
     - text: "R-Squared Challenged"
       href: GoodnessofFit_RSquared.html

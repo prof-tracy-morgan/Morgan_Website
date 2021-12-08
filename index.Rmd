@@ -6,10 +6,12 @@ links:
     url: "https://www.linkedin.com/in/tracy-morgan-3917915/"
   - label: YouTube Channel
     url: "https://www.youtube.com/channel/UCKQxgI5MGaTo6VW0iSjF9QA"
+  - label: Schedule an Appointment 
+    url:  "https://calendly.com/proftmorgan/advising-meeting"
     
     
-description: |
-  A new article created using the Distill format.
+description: 
+  Description goes here 
 
 output:
   postcards::jolla

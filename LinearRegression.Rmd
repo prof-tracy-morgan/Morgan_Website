@@ -4,6 +4,8 @@ author: "Lesson by Dr. Joshua O.S. Hunt, presented by Tracy Morgan"
 date: "`r Sys.Date()`"
 output: distill::distill_article
 ---
+#### In this example, we will use the data set called tips.  When you scroll down, you can see that the data set includes the total bill, tip amount, and some information about the tipper.  The purpose of the regression anaylsis is to establish some kind of pattern between the variables so that tip amounts might be predicted in the future when these same variables exist.  
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
