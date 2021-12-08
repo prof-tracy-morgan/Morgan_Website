@@ -3,7 +3,8 @@ title: "RSquared Challenged!"
 
 description: R-squared does not measure goodness of fit. It can be arbitrarily low when the model is completely correct.
 author:
-  - name: Dr. Joshua O.S.Hunt, interpreted by Tracy Morgan  
+  - name: Dr. Joshua O.S.Hunt, Mississippi State University
+          interpreted by Tracy Morgan  
 date: "`r Sys.Date()`"
 output: distill::distill_article
 ---
