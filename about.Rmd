@@ -1,7 +1,6 @@
 ---
-title: "About this site"
-description: |
-  Some additional details about the website
+title: "About me :)"
+
 date: "`r Sys.Date()`"
 output: distill::distill_article
 ---
