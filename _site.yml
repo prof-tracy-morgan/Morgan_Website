@@ -13,8 +13,8 @@ navbar:
       href: GoodnessofFit_RSquared.html
     - text: "Resume"
       href: ResumeforWebsite.html
-    - text: "Blog"      # add
-      href: blog.html   # add
+    - text: "Website"      # add
+      href: Website.html   # add
       title: "Blog"  # any name you want here
 listing: posts # do this exactly
 output: distill::distill_article

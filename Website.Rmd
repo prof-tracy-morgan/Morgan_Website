@@ -1,0 +1,15 @@
+---
+title: "Website"
+
+author:
+  - name: Tracy Morgan  
+  
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+This website is a final project for ACC-8143 Accounting Data Analytics at Mississipi State.  
+
+I am a graduate student at Mississippi State seeking a Master of Taxation degree with a minor in Data Analytics.  
+
+To create this website, we used R.  R is a software program for data manipulation, data calculations, and data graphing.  R can be connected with GitHub to create a website! 

@@ -95,7 +95,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--  https://schema.org/Article -->
   <meta property="article:published" itemprop="datePublished" content="2021-12-07"/>
   <meta property="article:created" itemprop="dateCreated" content="2021-12-07"/>
-  <meta name="article:author" content="Dr. Joshua O.S.Hunt, interpreted by Tracy Morgan"/>
+  <meta name="article:author" content="Dr. Joshua O.S.Hunt, Mississippi State University interpreted by Tracy Morgan"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="Welcome to My Website : RSquared Challenged!"/>
@@ -113,7 +113,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["RSquared Challenged!"]},{"type":"character","attributes":{},"value":["R-squared does not measure goodness of fit. It can be arbitrarily low when the model is completely correct."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Dr. Joshua O.S.Hunt, interpreted by Tracy Morgan"]}]}]},{"type":"character","attributes":{},"value":["2021-12-07"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["RSquared Challenged!"]},{"type":"character","attributes":{},"value":["R-squared does not measure goodness of fit. It can be arbitrarily low when the model is completely correct."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Dr. Joshua O.S.Hunt, Mississippi State University interpreted by Tracy Morgan"]}]}]},{"type":"character","attributes":{},"value":["2021-12-07"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2061,7 +2061,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"RSquared Challenged!","description":"R-squared does not measure goodness of fit. It can be arbitrarily low when the model is completely correct.","authors":[{"author":"Dr. Joshua O.S.Hunt, interpreted by Tracy Morgan","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-07T00:00:00.000-06:00","citationText":"Morgan, 2021"}
+{"title":"RSquared Challenged!","description":"R-squared does not measure goodness of fit. It can be arbitrarily low when the model is completely correct.","authors":[{"author":"Dr. Joshua O.S.Hunt, Mississippi State University interpreted by Tracy Morgan","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-07T00:00:00.000-06:00","citationText":"Morgan, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2077,7 +2077,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <a href="about.html">About</a>
 <a href="GoodnessofFit_RSquared.html">R-Squared Challenged</a>
 <a href="ResumeforWebsite.html">Resume</a>
-<a href="blog.html">Blog</a>
+<a href="Website.html">Website</a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
 </nav>
@@ -2094,7 +2094,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-byline">
-  Dr. Joshua O.S.Hunt, interpreted by Tracy Morgan  
+  Dr. Joshua O.S.Hunt, Mississippi State University interpreted by Tracy Morgan  
   
 <br/>2021-12-07
 </div>
@@ -2139,7 +2139,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h3 id="in-the-previous-formula-prediction-is-f.-we-calculated-each-predition-minus-the-mean-of-the-prediction-and-then-we-squared-it-and-summed-it-and-then-we-did-the-same-for-the-actual-which-gives-us-rsquared.">In the previous formula, prediction is f. We calculated each predition minus the mean of the prediction and then we squared it and summed it and then we did the same for the actual which gives us RSquared.</h3>
 <p><strong>R-squared does not measure goodness of fit. It can be arbitrarily low when the model is completely correct.</strong></p>
 <p><strong>Assertion:</strong> By making the variance (sigma squared) larger, we drive R-squared towards 0. This is not good! <span class="math display">\[σ2\]</span></p>
-<h2 id="this-happens-even-when-every-assumption-of-the-simple-linear-regression-model-is-correct.">This happens even when every assumption of the simple linear regression model is correct.</h2>
+<h2 id="this-happens-even-when-every-assumption-of-the-simple-linear-regression-model-is-correct."><strong>This happens even when every assumption of the simple linear regression model is correct.</strong></h2>
 <p>We can demonstrate that this is a problem. Let’s make a function called r2.0 that will increase the variance and show how that affects R-squared. “sig” represents our input and our function will make x values and y values wit sig (our input) being the standard deviation. This is how we can make the variance larger or smaller. Then summary will pull up R-squared.</p>
 <p>Sigmas are the sequences which will go from .5 to 20. You can see the variables when when you run signmas, which shows us our increasing standard deviation.</p>
 <p>Rout is a function that is taking each signma and put it into the r2.0 function. The sapply function runs each sigma through this canned loop.</p>
@@ -2162,7 +2162,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <p><img src="GoodnessofFit_RSquared_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
 </div>
-<p><strong>In summary, all we did was increase the standard deviation for a model and R-Squared changed dramatically. This proves that is not always a measure of good fit.</strong></p>
+<p>In summary, all we did was increase the standard deviation for a model and R-Squared changed dramatically. This proves that is not always a measure of good fit.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
