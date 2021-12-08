@@ -1,31 +1,21 @@
 ---
-title: "RSquared"
-description: |
-  A new article created using the Distill format.
+title: "RSquared Challenged! "
+description: |R-squared does not measure goodness of fit. It can be arbitrarily low when the model is completely correct.
 author:
   - name: Dr. Joshua O.S.Hunt, interpreted by Tracy Morgan  
-
 date: "`r Sys.Date()`"
 output: distill::distill_article
----
-
----
-title: "RSquared"
-author: "Tracy Morgan"
-date: "10/11/2021"
-output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# R-squared does not measure goodness of fit. It can be arbitrarily low when the model is completely correct.** 
+#### R-Squared works a bit like a grading system in stats.  The values of R-Squared range from 0 to 1.  Think of this like a 100%, if the R-Squared is higher (closer to 100%), then our model is doing a good job explaining the variation in our data.  If the number is lower, then our model is only explaining a lower percentage of the actual data Most programs will give you R-Squared as an output when running summary statistics becuase it is well-known as an important and accurate measurement.
 
-### R-Squared works a bit like a grading system in stats.  The values of R-Squared range from 0 to 1.  Think of this like a 100%, if the R-Squared is higher (closer to 100%), then our model is doing a good job explaining the variation in our data.  If the number is lower, then our model is only explaining a lower percentage of the actual data Most programs will give you R-Squared as an output when running summary statistics becuase it is well-known as an important and accurate measurement.
+#### One theory combatting this belief is that R-Squared is not always a measure of good fit within a model.  This code and lesson is from Dr. Joshua O.S. Hunt of Mississippi State University.    
 
-### One theory combatting this belief is that R-Squared is not always a measure of good fit within a model.  This code and lesson is from Dr. Joshua O.S. Hunt of Mississippi State University.    
-
+---
 
 **In R, we typically get R-squared by calling the summary function on a model object. Here’s a quick example using simulated data:**
 
@@ -57,14 +47,14 @@ tss <- sum((y - mean(y))^2)
 # r-squared
 mss/tss 
 ```
-# In the previous formula, prediction is f.  We calculated each predition minus the mean of the prediction and then we squared it and summed it and then we did the same for the actual which gives us RSquared.  
+### In the previous formula, prediction is f.  We calculated each predition minus the mean of the prediction and then we squared it and summed it and then we did the same for the actual which gives us RSquared.  
 
 **R-squared does not measure goodness of fit. It can be arbitrarily low when the model is completely correct.** 
 
-**Assertion:**  By making the variance (sigma squared) $$σ2$$ is large, we drive R-squared towards 0.  This is not good!  
+**Assertion:**  By making the variance (sigma squared) larger, we drive R-squared towards 0.  This is not good!  $$σ2$$
 
-This happens when every assumption of the simple linear regression model is correct in every particular.
-
+This happens even when every assumption of the simple linear regression model is correct.
+---
 We can demonstrate that this is a problem.  Let's make a function called r2.0 that will increase the variance and show how that affects R-squared.  "sig" represents our input and our function will make x values and y values wit sig (our input) being the standard deviation. This is how we can make the variance larger or smaller.  Then summary will pull up R-squared.  
 
 Sigmas are the sequences which will go from .5 to 20. You can see the variables when when you run signmas, which shows us our increasing standard deviation. 
@@ -91,7 +81,7 @@ plot(rout ~ sigmas, type="b")
 
 ```
 
-In summary, all we did was increase the standard deviation for a model and R-Squared changed dramatically.  This proves that is not always a measure of good fit.
+**In summary, all we did was increase the standard deviation for a model and R-Squared changed dramatically.  This proves that is not always a measure of good fit.**
 
 
 

@@ -2094,16 +2094,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-byline">
+  Dr. Joshua O.S.Hunt, interpreted by Tracy Morgan  
   
-  Tracy Morgan
-  
-<br/>10/11/2021
+<br/>2021-12-07
 </div>
 
 <div class="d-article">
-<h1 id="r-squared-does-not-measure-goodness-of-fit.-it-can-be-arbitrarily-low-when-the-model-is-completely-correct.">R-squared does not measure goodness of fit. It can be arbitrarily low when the model is completely correct.**</h1>
-<h3 id="r-squared-works-a-bit-like-a-grading-system-in-stats.-the-values-of-r-squared-range-from-0-to-1.-think-of-this-like-a-100-if-the-r-squared-is-higher-closer-to-100-then-our-model-is-doing-a-good-job-explaining-the-variation-in-our-data.-if-the-number-is-lower-then-our-model-is-only-explaining-a-lower-percentage-of-the-actual-data-most-programs-will-give-you-r-squared-as-an-output-when-running-summary-statistics-becuase-it-is-well-known-as-an-important-and-accurate-measurement.">R-Squared works a bit like a grading system in stats. The values of R-Squared range from 0 to 1. Think of this like a 100%, if the R-Squared is higher (closer to 100%), then our model is doing a good job explaining the variation in our data. If the number is lower, then our model is only explaining a lower percentage of the actual data Most programs will give you R-Squared as an output when running summary statistics becuase it is well-known as an important and accurate measurement.</h3>
-<h3 id="one-theory-combatting-this-belief-is-that-r-squared-is-not-always-a-measure-of-good-fit-within-a-model.-this-code-and-lesson-is-from-dr.-joshua-o.s.-hunt-of-mississippi-state-university.">One theory combatting this belief is that R-Squared is not always a measure of good fit within a model. This code and lesson is from Dr. Joshua O.S. Hunt of Mississippi State University.</h3>
+<p>#Title: R-squared does not measure goodness of fit. It can be arbitrarily low when the model is completely correct.</p>
+<h4 id="r-squared-works-a-bit-like-a-grading-system-in-stats.-the-values-of-r-squared-range-from-0-to-1.-think-of-this-like-a-100-if-the-r-squared-is-higher-closer-to-100-then-our-model-is-doing-a-good-job-explaining-the-variation-in-our-data.-if-the-number-is-lower-then-our-model-is-only-explaining-a-lower-percentage-of-the-actual-data-most-programs-will-give-you-r-squared-as-an-output-when-running-summary-statistics-becuase-it-is-well-known-as-an-important-and-accurate-measurement.">R-Squared works a bit like a grading system in stats. The values of R-Squared range from 0 to 1. Think of this like a 100%, if the R-Squared is higher (closer to 100%), then our model is doing a good job explaining the variation in our data. If the number is lower, then our model is only explaining a lower percentage of the actual data Most programs will give you R-Squared as an output when running summary statistics becuase it is well-known as an important and accurate measurement.</h4>
+<h4 id="one-theory-combatting-this-belief-is-that-r-squared-is-not-always-a-measure-of-good-fit-within-a-model.-this-code-and-lesson-is-from-dr.-joshua-o.s.-hunt-of-mississippi-state-university.">One theory combatting this belief is that R-Squared is not always a measure of good fit within a model. This code and lesson is from Dr. Joshua O.S. Hunt of Mississippi State University.</h4>
 <p><strong>In R, we typically get R-squared by calling the summary function on a model object. Here’s a quick example using simulated data:</strong></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2137,7 +2136,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <pre><code>[1] 0.6026682</code></pre>
 </div>
-<h1 id="in-the-previous-formula-prediction-is-f.-we-calculated-each-predition-minus-the-mean-of-the-prediction-and-then-we-squared-it-and-summed-it-and-then-we-did-the-same-for-the-actual-which-gives-us-rsquared.">In the previous formula, prediction is f. We calculated each predition minus the mean of the prediction and then we squared it and summed it and then we did the same for the actual which gives us RSquared.</h1>
+<h3 id="in-the-previous-formula-prediction-is-f.-we-calculated-each-predition-minus-the-mean-of-the-prediction-and-then-we-squared-it-and-summed-it-and-then-we-did-the-same-for-the-actual-which-gives-us-rsquared.">In the previous formula, prediction is f. We calculated each predition minus the mean of the prediction and then we squared it and summed it and then we did the same for the actual which gives us RSquared.</h3>
 <p><strong>R-squared does not measure goodness of fit. It can be arbitrarily low when the model is completely correct.</strong></p>
 <p><strong>Assertion:</strong> By making the variance (sigma squared) <span class="math display">\[σ2\]</span> is large, we drive R-squared towards 0. This is not good!</p>
 <p>This happens when every assumption of the simple linear regression model is correct in every particular.</p>
@@ -2163,7 +2162,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <p><img src="GoodnessofFit_RSquared_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
 </div>
-<p>In summary, all we did was increase the standard deviation for a model and R-Squared changed dramatically. This proves that is not always a measure of good fit.</p>
+<p><strong>In summary, all we did was increase the standard deviation for a model and R-Squared changed dramatically. This proves that is not always a measure of good fit.</strong></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
