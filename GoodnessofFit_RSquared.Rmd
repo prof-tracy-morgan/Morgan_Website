@@ -38,7 +38,7 @@ summary(mod)$r.squared
 $$ R^{2} =  \frac{\sum (\hat{y} – \bar{\hat{y}})^{2}}{\sum (y – \bar{y})^{2}}$$
  
  
-```{r}
+```{r,echo=TRUE}
  # extract fitted (or predicted) values from model
 f <- mod$fitted.values
 # sum of squared fitted-value deviations
@@ -60,12 +60,10 @@ We can demonstrate that this is a problem.  Let's make a function called r2.0 th
 
 Sigmas are the sequences which will go from .5 to 20. You can see the variables when when you run signmas, which shows us our increasing standard deviation. 
 
-Rout is a function that is taking each signma and put it into the r2.0 function.  The sapply function runs each sigma through this canned loop. 
-
-When we run rout, we see R-Squared for each signma.  R-Square tanks going from .98 to .009!  All we did was to increase the standard deviation.  Keep in mind, nothing is wrong with this model, all we changed was the spread of x.  
+ 
 
 
-```{r}
+```{r, echo=TRUE}
 r2.0 <- function(sig){
   # our predictor
   x <- seq(1,10,length.out = 100)   
@@ -74,13 +72,31 @@ r2.0 <- function(sig){
   # print the R-squared value
   summary(lm(y ~ x))$r.squared          
 }
-sigmas <- seq(0.5,20,length.out = 20)
- # apply our function to a series of sigma values
-rout <- sapply(sigmas, r2.0)            
-plot(rout ~ sigmas, type="b")
-
-
 ```
+Here is a list of all the sigma values in sigmas. NOtice the numbers are between .5 and 20.  
+```{r}
+sigmas <- seq(0.5,20,length.out = 20)
+list(sigmas)
+```
+Rout is a function that is taking each signma and put it into the r2.0 function.  The sapply function runs each sigma through this canned loop. 
+
+When we run "rout", we see R-Squared for each signma.  R-Square tanks going from .98 to .009!  
+
+Here is a list of all the rout output which is R-Squared for each signma.
+```{r}
+ # apply our function to a series of sigma values
+rout <- sapply(sigmas, r2.0) 
+list(rout)
+```
+
+All we did was to increase the standard deviation.  Keep in mind, nothing is wrong with this model, all we changed was the spread of x. 
+
+Here is a plot of rout ~ Sigmas 
+
+```{r}
+plot(rout ~ sigmas, type="b")
+```
+
 
 **In summary, all we did was increase the standard deviation for a model and R-Squared changed dramatically.  This proves that is not always a measure of good fit.**
 
