@@ -2076,6 +2076,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <a href="index.html">Home</a>
 <a href="about.html">About</a>
 <a href="GoodnessofFit_RSquared.html">R-Squared Challenged</a>
+<a href="LinearRegression.html">Machine Learning Example</a>
 <a href="ResumeforWebsite.html">Resume</a>
 <a href="Website.html">Website</a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
@@ -2139,7 +2140,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h3 id="in-the-previous-formula-prediction-is-f.-we-calculated-each-predition-minus-the-mean-of-the-prediction-and-then-we-squared-it-and-summed-it-and-then-we-did-the-same-for-the-actual-which-gives-us-rsquared.">In the previous formula, prediction is f. We calculated each predition minus the mean of the prediction and then we squared it and summed it and then we did the same for the actual which gives us RSquared.</h3>
 <p><strong>R-squared does not measure goodness of fit. It can be arbitrarily low when the model is completely correct.</strong></p>
 <p><strong>Assertion:</strong> By making the variance (sigma squared) larger, we drive R-squared towards 0. This is not good! <span class="math display">\[σ2\]</span></p>
-<h2 id="this-happens-even-when-every-assumption-of-the-simple-linear-regression-model-is-correct."><strong>This happens even when every assumption of the simple linear regression model is correct.</strong></h2>
+<h2 id="this-happens-even-when-every-assumption-of-the-simple-linear-regression-model-is-correct.">#### This happens even when every assumption of the simple linear regression model is correct.</h2>
 <p>We can demonstrate that this is a problem. Let’s make a function called r2.0 that will increase the variance and show how that affects R-squared. “sig” represents our input and our function will make x values and y values wit sig (our input) being the standard deviation. This is how we can make the variance larger or smaller. Then summary will pull up R-squared.</p>
 <p>Sigmas are the sequences which will go from .5 to 20. You can see the variables when when you run signmas, which shows us our increasing standard deviation.</p>
 <p>Rout is a function that is taking each signma and put it into the r2.0 function. The sapply function runs each sigma through this canned loop.</p>

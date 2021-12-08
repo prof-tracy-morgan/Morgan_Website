@@ -2,8 +2,10 @@
 title: "Tracy Morgan"
 image: "TracyMorgan.jpg"
 links:
-  - label: linkedin
+  - label: Linkedin
     url: "https://www.linkedin.com/in/tracy-morgan-3917915/"
+  - label: YouTube Channel
+    url: "https://www.youtube.com/channel/UCKQxgI5MGaTo6VW0iSjF9QA"
     
     
 description: |

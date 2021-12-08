@@ -1,0 +1,255 @@
+---
+title: "Machine Learning - Linear Regression Example"
+author: "Lesson by Dr. Joshua O.S. Hunt, presented by Tracy Morgan"
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+library(tidyverse)
+library(caret)
+#load data. 
+#curl package lets us download data from a website with the proper location
+#check the packages tab and see if you have curl
+#try following
+  #?curl
+
+library(curl)
+
+load(curl("https://raw.githubusercontent.com/Professor-Hunt/ACC8143/main/data/tips.rda"))
+head(tips,5)
+```
+
+library(tidyverse)
+library(caret)
+library(curl)
+```{r}
+#view the whole dataset
+knitr::kable(tips)%>%
+  kableExtra::kable_styling("striped")%>%
+  kableExtra::scroll_box(width = "100%",height="300px")
+```
+```{r}
+OLS1<-lm(formula=tip~total_bill,data=tips)
+#general output
+OLS1
+```
+```{r}
+#more common output
+summary(OLS1)
+```
+```{r}
+#correlation or R-squared...
+cor(tips$total_bill,tips$tip)^2
+```
+```{r}
+#Get some data
+AnsDat<-anscombe%>%
+  select(y1,x1)
+```
+
+```{r}
+#extract x and y columns
+Y<-AnsDat$y1
+X<-AnsDat$x1
+```
+```{r}
+
+#determine mean values
+mean_x<-mean(X,na.rm = TRUE)
+mean_y<-mean(Y,na.rm = TRUE)
+```
+```{r}
+#determine best fit model parameters (from simple linear regression)
+beta = sum((X - mean_x) * (Y - mean_y)) / sum((X - mean_x)**2)
+beta
+```
+```{r}
+alpha = mean_y - beta * mean_x
+alpha
+```
+
+
+```{r}
+#lets double check
+summary(lm(formula=Y~X,data=AnsDat))
+
+```
+```{r}
+plot(lm(formula=Y~X,data=AnsDat))
+```
+
+```{r}
+library(ggplot2)
+```
+
+```{r}
+#create regression plot
+ggplot(AnsDat,aes(x1, y1)) +
+  geom_point() +
+  geom_smooth(method='lm', se=FALSE) +
+  geom_segment(aes(x=X, xend=X, y=Y, yend=lm(Y~X)$fitted.values, color="error"))+
+  theme_minimal() +
+  labs(x='X Values', y='Y Values', title='Linear Regression Plot') +
+  theme(plot.title = element_text(hjust=0.5, size=20, face='bold')) + 
+  theme(legend.title = element_blank())
+```
+```{r}
+#define our betas
+betas<-seq(-4,4,length.out=100)
+```
+
+
+```{r}
+#define our cost function
+l2n = sapply(as.matrix(betas), function(m) log(sqrt(sum((as.matrix(tips$tip) - m*as.matrix(tips$total_bill))^2))))  # The L2-norm
+```
+```{r}
+library(ggplot2)
+costplot<-as.data.frame(cbind(betas,l2n))
+#create regression plot
+ggplot(costplot,aes(betas, l2n)) +
+  geom_point(color="blue") + geom_line()+
+  geom_vline(xintercept=0, color="red")
+```
+```{r}
+#define our betas
+betas<-seq(-4,4,length.out=100)
+alphas<-seq(-40,40,length.out=100)
+## Generate a grid of X- and Y- values on which to predict
+grid <-expand.grid(betas,alphas)
+#define our cost function
+l2n2 = mapply( function(m,b) log(sqrt(sum((as.matrix(tips$tip) - m*as.matrix(tips$total_bill) - b)^2))),as.matrix(grid$Var1),as.matrix(grid$Var2))  # The L2-norm
+```
+
+```{r}
+#define our betas
+betas<-seq(-4,4,length.out=100)
+alphas<-seq(-40,40,length.out=100)
+## Generate a grid of X- and Y- values on which to predict
+grid <-expand.grid(betas,alphas)
+#define our cost function
+l2n2 = mapply( function(m,b) log(sqrt(sum((as.matrix(tips$tip) - m*as.matrix(tips$total_bill) - b)^2))),as.matrix(grid$Var1),as.matrix(grid$Var2))  # The L2-norm
+```
+```{r}
+library(ggplot2)
+```
+
+```{r}
+ggplot(grid, aes(Var1, Var2)) +
+  geom_raster(aes(fill=l2n2),show.legend = FALSE) +
+  geom_point(color="deepskyblue3",aes(OLS1$coefficients[[2]],OLS1$coefficients[[1]]))+
+  theme_minimal() +
+  labs(x=expression(beta), y=expression(alpha), title=expression(paste("Cost function for"," ",y==beta*x+alpha))) +
+  theme(plot.title = element_text(hjust=0.5, size=20, face='bold')) + 
+  theme(legend.title = element_blank())
+```
+```{r}
+#set the seed :)
+set.seed(1)
+#get our samples
+```
+
+```{r}
+#lets split the data 60/40
+library(caret)
+trainIndex <- createDataPartition(tips$tip, p = .6, list = FALSE, times = 1)
+```
+```{r}
+#look at the first few
+#head(trainIndex)
+```
+
+```{r}
+#grab the data
+tipsTrain <- tips[ trainIndex,]
+tipsTest  <- tips[-trainIndex,]
+```
+```{r}
+#fit simple linear regression model
+model_noint <- lm(tip ~ 0+total_bill , data = tipsTrain)
+
+noint_results<-predict(model_noint,tipsTest)
+###compute fit
+summary(model_noint)
+```
+
+```{r}
+knitr::kable(caret::RMSE(noint_results,tipsTest$tip),col.names = "RMSE")
+```
+```{r}
+tipsTest$Sample<-"Testing"
+tipsTrain$Sample<-"Training"
+```
+```{r}
+Combined_Tips<-rbind(tipsTest,tipsTrain)
+#create regression plot with customized style
+ggplot(Combined_Tips,aes(x=total_bill, y=tip,color=Sample)) +
+  geom_point(alpha=.5) +
+  theme_minimal() +
+  labs(x='X Values', y='Y Values', title='Linear Regression Plot') +
+  theme(plot.title = element_text(hjust=0.5, size=20, face='bold')) +
+  geom_abline(aes(slope=model_noint$coefficients[[1]],intercept=0),color="red")
+```
+```{r}
+library(tidyverse)
+#create residuals
+testwithpred<-as.data.frame(cbind(noint_results,tipsTest))
+#create residuals
+testwithpred<-testwithpred%>%
+  rename(prediction=noint_results)%>%
+  mutate(error=tip-prediction)
+
+#create regression plot with customized style
+ggplot(testwithpred,aes(x=total_bill, y=error)) +
+  geom_point(alpha=.5,color="deepskyblue") +
+  theme_minimal() +
+  labs(x='Total Bill', y='Error', title='Regression Error Plot') +
+  theme(plot.title = element_text(hjust=0.25, size=20, face='bold')) +
+  geom_hline(yintercept=0,color="red",linetype="dashed")
+```
+
+Model with an intercept: 
+```{r}
+#fit simple linear regression model
+model_int <- lm(tip ~ total_bill , data = tipsTrain)
+
+int_results<-predict(model_int,tipsTest)
+###compute fit
+summary(model_int)
+```
+```{r}
+knitr::kable(caret::RMSE(int_results,tipsTest$tip),col.names = "RMSE")
+```
+
+A Model with an intercept:
+```{r}
+#create regression plot with customized style
+ggplot(Combined_Tips,aes(x=total_bill, y=tip,color=Sample)) +
+  geom_point(alpha=.5) +
+  theme_minimal() +
+  labs(x='X Values', y='Y Values', title='Linear Regression Plot') +
+  theme(plot.title = element_text(hjust=0.5, size=20, face='bold')) +
+  geom_abline(aes(slope=model_int$coefficients[[2]],intercept=model_int$coefficients[[1]]),color="red")
+```
+Residual Plot:
+```{r}
+#create residuals
+testwithpred2<-as.data.frame(cbind(int_results,tipsTest))
+#create residuals
+testwithpred2<-testwithpred2%>%
+  rename(prediction=int_results)%>%
+  mutate(error=tip-prediction)
+
+#create regression plot with customized style
+ggplot(testwithpred2,aes(x=total_bill, y=error)) +
+  geom_point(alpha=.5,color="deepskyblue") +
+  theme_minimal() +
+  labs(x='Total Bill', y='Error', title='Regression Error Plot') +
+  theme(plot.title = element_text(hjust=0.25, size=20, face='bold')) +
+  geom_hline(yintercept=0,color="red",linetype="dashed")
+```
+

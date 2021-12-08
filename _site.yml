@@ -11,6 +11,8 @@ navbar:
       href: about.html
     - text: "R-Squared Challenged"
       href: GoodnessofFit_RSquared.html
+    - text: "Machine Learning Example"
+      href: LinearRegression.html
     - text: "Resume"
       href: ResumeforWebsite.html
     - text: "Website"      # add
