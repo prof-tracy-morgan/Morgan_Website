@@ -8,7 +8,8 @@ author:
 
 date: "`r Sys.Date()`"
 output: distill::distill_article
----
+
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -18,8 +19,6 @@ Data Set:
 
 My Goal: 
 
-library(caret)
-library(ggplot2)
 
 Really!  I'm lost so I'm switching to an easier data set.  
 Abalone is what another student is working on so I'm going to try to look at this data set: 
@@ -27,18 +26,35 @@ Abalone is what another student is working on so I'm going to try to look at thi
 ABALONE:  a marine snail.  You can read about it here in Wikipedia!  
 
 Great, I'm looking at house prices and then  I am changing to snails. 
-url: "https://en.wikipedia.org/wiki/Abalone" 
+```{r}
+library(caret)
+library(ggplot2)
 
-```{r,echo=TRUE}
-#view the whole dataset
-    # Read CSV data
-    data_abalone <- read.csv("./abalone.csv", header=F)
+```
+```{r}
+library(readr)
+abalone <- read_csv("abalone.csv")
+View(abalone)
+```
 
+
+```{r}
+   # Create a column name from abalone.txt to get a description of each record value
+    colnames(abalone) <- c('Sex', 'Length', 'Diameter', 'Height', 'WholeWeight', 'ShuckedWeight',
+                           'VisceraWeight', 'ShellWeight', 'Rings')
 ```
 
 ```{r}
-  # Clean NAs and empty values from dataset
-    data_abalone[data_abalone==""] <- NA
-    data_abalone <- na.omit(data_abalone)
+   # Get a summary of data 
+    summary(abalone)
 ```
+```{r}
+    # Get type of data
+    sapply(abalone, class)
+```
+```{r}
+ qplot(Length, Rings, data=abalone, color=Sex) + geom_point() + geom_smooth(method="lm")
+```
+
+
 
