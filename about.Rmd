@@ -1,9 +1,11 @@
 ---
 title: "About me :)"
 
-date: "`r Sys.Date()`"
-output: distill::distill_article
 
+date: "`r Sys.Date()`"
+
+output: distill::distill_article
+---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -13,11 +15,4 @@ Hi, I'm Tracy Morgan and I am an Accounting and Business teacher for Holmes Comm
 
 Mike is a professor of Finance at the University of Southern Mississippi.  We both love teaching and when we have a break, we like to spend time with family and go see our grandkids.  We have 3 kids, 3 bonus kids, and 3 grandkids!  
 
-image: "mikeandt.jpg"
-Mike and I at Germanfest in Gluckstat, MS
-
-image: "JandT.jpg"
-One of my daughters teaches at Hinds and I teach at Holmes. 
-
-image: "family.jpg" 
-Here is a front porch picture of some of my crazy family.  
+  
