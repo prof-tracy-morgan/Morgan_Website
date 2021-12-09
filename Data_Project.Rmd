@@ -18,98 +18,27 @@ Data Set:
 
 My Goal: 
 
+library(caret)
+library(ggplot2)
 
-```
-
-After Loading the package libraries, I had to install several packages.  I'm just going to try this to see what happens....
-
-This data set came with two sets, train and test.  Here is the Train Data Set 
-```{r, echo=TRUE}
-#view the whole dataset
-knitr::kable(train)%>%
-  kableExtra::kable_styling("striped")%>%
-  kableExtra::scroll_box(width = "100%",height="300px")
-```
-Here is the TEST data set: 
-```{r,echo=TRUE}
-#view the whole dataset
-knitr::kable(test)%>%
-  kableExtra::kable_styling("striped")%>%
-  kableExtra::scroll_box(width = "100%",height="300px")
-```
-
-Some of the data includes text and some includes numerical data.  
-
-Let's Look at train: 
-The housing train data set has 1460 rows and 81 features with the target feature Sale Price. The housing test data set has 1459 rows and 80 features with the target feature Sale Price.
-```{r}
-#Count the number of columns that consists of text data
-
-sum(sapply(train[,1:81], typeof) == "character")
-```
-That is correct, there are 43 columns which include text data.  
-
-
-```{r}
-#Count the number of columns that consists of numerical data
-
-sum(sapply(train[,1:81], typeof) == "integer")
-```
-This is bad.  I think this means that the numbers in the table are not formatted as numbers, but maybe as text or something else?  
-
-----
 Really!  I'm lost so I'm switching to an easier data set.  
 Abalone is what another student is working on so I'm going to try to look at this data set: 
 
-ABALONE:  a marine snail.  You can read about it here in Wikipedia!  Great, I'm looking at house prices and then  I am changing to snails. 
+ABALONE:  a marine snail.  You can read about it here in Wikipedia!  
+
+Great, I'm looking at house prices and then  I am changing to snails. 
 url: "https://en.wikipedia.org/wiki/Abalone" 
 
-```{r}
+```{r,echo=TRUE}
 #view the whole dataset
-knitr::kable(abalone)%>%
-  kableExtra::kable_styling("striped")%>%
-  kableExtra::scroll_box(width = "100%",height="300px")
-```
+    # Read CSV data
+    data_abalone <- read.csv("./abalone.csv", header=F)
 
-Clustering
-
-```{r}
-#lets split the data 60/40
-library(caret)
-trainindex <- createDataPartition(abalone$`Whole weight`, p = .6, list = FALSE, times = 1)
 ```
 
 ```{r}
-#grab the data
-abaloneTrain <- iris[ trainIndex,]
-abaloneTest  <- iris[-trainIndex,]
-```
-
-```{r}
-#normalize variables
-preProcValues <- preProcess(abaloneTrain, method = c("center", "scale"))
-trainTransformed <- predict(preProcValues, abaloneTrain)
-
-preProcValues <- preProcess(abaloneTest, method = c("center", "scale"))
-testTransformed <- predict(preProcValues, abaloneTest)
-```
-
-```{r}
-#cluster
-Clusters<-kmeans(trainTransformed[,-5],centers=3)
-
-Clusters
-```
-
-```{r}
-library(tidyverse)
-
-Clusterdata<-trainTransformed
-Clusterdata$Cluster<-as.factor(Clusters$cluster)
-```
-
-```{r}
-#Remember me
-ggplot(data=Clusterdata,mapping = aes(x=Sepal.Width,y=Petal.Width,color=Cluster))+geom_point(alpha=0.5)
+  # Clean NAs and empty values from dataset
+    data_abalone[data_abalone==""] <- NA
+    data_abalone <- na.omit(data_abalone)
 ```
 
