@@ -2148,16 +2148,79 @@ Abalone is what another student is working on so I’m going to try to look at t
 ShuckedWeight VisceraWeight   ShellWeight         Rings 
     &quot;numeric&quot;     &quot;numeric&quot;     &quot;numeric&quot;     &quot;numeric&quot; </code></pre>
 </div>
+<h1 id="plotting-age-linear-models">Plotting Age Linear Models</h1>
+<p>According to correlation results more correlation is between ShellWeight and Rings and Length and Rings</p>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="Data_Project_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="Data_Project_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
 </div>
+<h1 id="comparison-linear-models">Comparison linear models</h1>
+<p>We will compare some models in order to select the best</p>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="Data_Project_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
 </div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>Analysis of Variance Table
+
+Model 1: Rings ~ ShellWeight + Length
+Model 2: Rings ~ ShellWeight
+  Res.Df   RSS Df Sum of Sq Pr(&gt;Chi)
+1   4174 26304                      
+2   4175 26313 -1   -9.9104   0.2098</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>Analysis of Variance Table
+
+Model 1: Rings ~ Sex + Length + Diameter + Height + WholeWeight + ShuckedWeight + 
+    VisceraWeight + ShellWeight
+Model 2: Rings ~ ShellWeight
+  Res.Df   RSS Df Sum of Sq  Pr(&gt;Chi)    
+1   4167 20061                           
+2   4175 26313 -8   -6252.7 &lt; 2.2e-16 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+<h1 id="seems-than-better-model-is-taking-into-account-all-variables-to-predict-rings">Seems than better model is taking into account all variables to predict Rings</h1>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+Call:
+lm(formula = Rings ~ ., data = abalone)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-10.4800  -1.3053  -0.3428   0.8600  13.9426 
+
+Coefficients:
+               Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)     3.89464    0.29157  13.358  &lt; 2e-16 ***
+SexI           -0.82488    0.10240  -8.056 1.02e-15 ***
+SexM            0.05772    0.08335   0.692    0.489    
+Length         -0.45834    1.80912  -0.253    0.800    
+Diameter       11.07510    2.22728   4.972 6.88e-07 ***
+Height         10.76154    1.53620   7.005 2.86e-12 ***
+WholeWeight     8.97544    0.72540  12.373  &lt; 2e-16 ***
+ShuckedWeight -19.78687    0.81735 -24.209  &lt; 2e-16 ***
+VisceraWeight -10.58183    1.29375  -8.179 3.76e-16 ***
+ShellWeight     8.74181    1.12473   7.772 9.64e-15 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 2.194 on 4167 degrees of freedom
+Multiple R-squared:  0.5379,    Adjusted R-squared:  0.5369 
+F-statistic: 538.9 on 9 and 4167 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="Data_Project_files/figure-html5/unnamed-chunk-12-1.png" width="624" /><img src="Data_Project_files/figure-html5/unnamed-chunk-12-2.png" width="624" /><img src="Data_Project_files/figure-html5/unnamed-chunk-12-3.png" width="624" /><img src="Data_Project_files/figure-html5/unnamed-chunk-12-4.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>[1] 0</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>[1] 74.0839</code></pre>
+</div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

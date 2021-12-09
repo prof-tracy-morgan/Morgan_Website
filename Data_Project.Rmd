@@ -56,6 +56,10 @@ View(abalone)
 ```{r}
   sapply(abalone, class)
 ```
+
+# Plotting Age Linear Models
+According to correlation results more correlation is between ShellWeight and Rings and Length and Rings
+
 ```{r}
 qplot(Length, Rings, data=abalone, color=Sex) + geom_point() + geom_smooth(method="lm")
 ```
@@ -63,7 +67,8 @@ qplot(Length, Rings, data=abalone, color=Sex) + geom_point() + geom_smooth(metho
 ```{r}
 qplot(ShellWeight, Rings, data=abalone, color=Sex) + geom_point() + geom_smooth(method="lm")
 ```
-
+# Comparison linear models
+We will compare some models in order to select the best
    
 ```{r}
     modelFitAll <- lm(Rings ~ ., data = abalone) 
@@ -71,7 +76,33 @@ qplot(ShellWeight, Rings, data=abalone, color=Sex) + geom_point() + geom_smooth(
     modelFitShellWeight <- lm(Rings ~ ShellWeight, data = abalone) 
     plot(resid(modelFitShellWeight), col="Blue")
 ```
+```{r}
+anova(modelFitMultiple, modelFitShellWeight, test="Chisq")
+```
+```{r}
+    anova(modelFitAll, modelFitShellWeight, test="Chisq")
+```
 
-
+# Seems than better model is taking into account all variables to predict Rings
+```{r}
+summary(modelFitAll)
+```
+```{r}
+   plot(modelFitAll)
+```
+```{r}
+   # Rings linear model
+    inTrainRings <- createDataPartition(y=abalone$Rings, p=0.75, list=FALSE)
+    trainingRings <- abalone[inTrainRings,]
+    testingRings <- abalone[-inTrainRings,]
+    set.seed(1234)
+    modelFitRings <- train(Rings~., data=trainingRings, method="lm")
+    #predict(modelFitRings, data = testingRings)
+    sqrt(sum((modelFitRings$fitted - trainingRings$Rings)^2))
+```
+```{r}
+sqrt(sum((predict(modelFitRings, newdata = testingRings) - testingRings$Rings)^2))
+```
+    
 
 
