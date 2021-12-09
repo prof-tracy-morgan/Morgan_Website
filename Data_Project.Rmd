@@ -15,16 +15,13 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 Data Set: Abalone from Kaggle 
-
-My Goal: Plot Linear Models with this data 
-
-
-Really!  I'm lost so I'm switching to an easier data set.  
-Abalone is what another student is working on so I'm going to try to look at this data set: 
-
 ABALONE:  a marine snail.  You can read about it here in Wikipedia!  
+Data Description: 4.177 records of measurements, age, and sex of these oyster-like creatures called Abalone.  
+Descriptive Stats: There are some large specimin outliers included in the data set.  
+Machine Learning Model:
+Run Model and Find Results:
+Describe Results:  
 
-Great, I'm looking at house prices and then  I am changing to snails. 
 
 ```{r}
 library(caret)
