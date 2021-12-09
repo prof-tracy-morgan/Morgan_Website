@@ -95,7 +95,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--  https://schema.org/Article -->
   <meta property="article:published" itemprop="datePublished" content="2021-12-08"/>
   <meta property="article:created" itemprop="dateCreated" content="2021-12-08"/>
-  <meta name="article:author" content="Nora Jones"/>
+  <meta name="article:author" content="Tracy Morgan"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="Tracy Morgan : Data Project"/>
@@ -113,7 +113,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Data Project"]},{"type":"character","attributes":{},"value":["Abalone Data from Kaggle \n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Nora Jones"]},{"type":"character","attributes":{},"value":["https://example.com/norajones"]}]}]},{"type":"character","attributes":{},"value":["2021-12-08"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Data Project"]},{"type":"character","attributes":{},"value":["Abalone Data from Kaggle \n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tracy Morgan"]}]}]},{"type":"character","attributes":{},"value":["2021-12-08"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2061,7 +2061,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Data Project","description":"Abalone Data from Kaggle","authors":[{"author":"Nora Jones","authorURL":"https://example.com/norajones","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-08T00:00:00.000-06:00","citationText":"Jones, 2021"}
+{"title":"Data Project","description":"Abalone Data from Kaggle","authors":[{"author":"Tracy Morgan","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-08T00:00:00.000-06:00","citationText":"Morgan, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2096,7 +2096,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-byline">
-  Nora Jones <a href="https://example.com/norajones" class="uri">https://example.com/norajones</a> 
+  Tracy Morgan  
   
 <br/>2021-12-08
 </div>
@@ -2104,13 +2104,35 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="d-article">
 <p>Data Set: Abalone from Kaggle ABALONE: a marine snail. You can read about it here in Wikipedia!<br />
 Data Description: 4.177 records of measurements, age, and sex of these oyster-like creatures called Abalone.<br />
-Descriptive Stats: There are some large specimin outliers included in the data set.<br />
+Descriptive Stats: There are some large specimen outliers included in the data set.<br />
 Machine Learning Model: Run Model and Find Results: Describe Results:</p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
 
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>abalone</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[[1]]
+# A tibble: 4,177 x 9
+   Sex   Length Diameter Height `Whole weight` `Shucked weight`
+   &lt;chr&gt;  &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;          &lt;dbl&gt;            &lt;dbl&gt;
+ 1 M      0.455    0.365  0.095          0.514           0.224 
+ 2 M      0.35     0.265  0.09           0.226           0.0995
+ 3 F      0.53     0.42   0.135          0.677           0.256 
+ 4 M      0.44     0.365  0.125          0.516           0.216 
+ 5 I      0.33     0.255  0.08           0.205           0.0895
+ 6 I      0.425    0.3    0.095          0.352           0.141 
+ 7 F      0.53     0.415  0.15           0.778           0.237 
+ 8 F      0.545    0.425  0.125          0.768           0.294 
+ 9 M      0.475    0.37   0.125          0.509           0.216 
+10 F      0.55     0.44   0.15           0.894           0.314 
+# ... with 4,167 more rows, and 3 more variables:
+#   Viscera weight &lt;dbl&gt;, Shell weight &lt;dbl&gt;, Rings &lt;dbl&gt;</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 
@@ -2149,15 +2171,15 @@ ShuckedWeight VisceraWeight   ShellWeight         Rings
 <h1 id="plotting-age-linear-models">Plotting Age Linear Models</h1>
 <p>According to correlation results more correlation is between ShellWeight and Rings and Length and Rings</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="Data_Project_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+<p><img src="Data_Project_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="Data_Project_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+<p><img src="Data_Project_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
 </div>
 <h1 id="comparison-linear-models">Comparison linear models</h1>
 <p>We will compare some models in order to select the best</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="Data_Project_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
+<p><img src="Data_Project_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <pre><code>Analysis of Variance Table
@@ -2210,7 +2232,7 @@ Multiple R-squared:  0.5379,    Adjusted R-squared:  0.5369
 F-statistic: 538.9 on 9 and 4167 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="Data_Project_files/figure-html5/unnamed-chunk-12-1.png" width="624" /><img src="Data_Project_files/figure-html5/unnamed-chunk-12-2.png" width="624" /><img src="Data_Project_files/figure-html5/unnamed-chunk-12-3.png" width="624" /><img src="Data_Project_files/figure-html5/unnamed-chunk-12-4.png" width="624" /></p>
+<p><img src="Data_Project_files/figure-html5/unnamed-chunk-13-1.png" width="624" /><img src="Data_Project_files/figure-html5/unnamed-chunk-13-2.png" width="624" /><img src="Data_Project_files/figure-html5/unnamed-chunk-13-3.png" width="624" /><img src="Data_Project_files/figure-html5/unnamed-chunk-13-4.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <pre><code>[1] 0</code></pre>
@@ -2218,7 +2240,7 @@ F-statistic: 538.9 on 9 and 4167 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div class="layout-chunk" data-layout="l-body">
 <pre><code>[1] 71.59417</code></pre>
 </div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
