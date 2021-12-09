@@ -38,6 +38,9 @@ abalone <- read_csv("abalone.csv")
 View(abalone)
 
 ```
+```{r,echo=TRUE}
+list(abalone)
+```
 
 ```{r}
    # Create a column name from abalone.txt to get a description of each record value
