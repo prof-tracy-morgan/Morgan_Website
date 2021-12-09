@@ -1,23 +1,22 @@
 ---
-title: "Data Project "
+title: "Data Project"
 description: |
-  Predicting House Prices using R 
+  Abalone Data from Kaggle 
 author:
-  - name: I found this regression anaysis on Kaggle, written by Pradeep Tripathi 
-    url: "https://www.kaggle.com/pradeeptripathi/predicting-house-prices-using-r"
+  - name: Nora Jones 
+    url: https://example.com/norajones
 
 date: "`r Sys.Date()`"
 output: distill::distill_article
-
-
+---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-Data Set: 
+Data Set: Abalone from Kaggle 
 
-My Goal: 
+My Goal: Plot Linear Models with this data 
 
 
 Really!  I'm lost so I'm switching to an easier data set.  
@@ -26,35 +25,53 @@ Abalone is what another student is working on so I'm going to try to look at thi
 ABALONE:  a marine snail.  You can read about it here in Wikipedia!  
 
 Great, I'm looking at house prices and then  I am changing to snails. 
+
 ```{r}
 library(caret)
 library(ggplot2)
+library(tidyverse)
+library(readxl)
+library(psych)
+library(knitr)
 
 ```
 ```{r}
 library(readr)
 abalone <- read_csv("abalone.csv")
 View(abalone)
-```
 
+```
 
 ```{r}
    # Create a column name from abalone.txt to get a description of each record value
     colnames(abalone) <- c('Sex', 'Length', 'Diameter', 'Height', 'WholeWeight', 'ShuckedWeight',
                            'VisceraWeight', 'ShellWeight', 'Rings')
+
+```
+# Get a summary of data 
+```{r}
+ summary(abalone)
+```
+# Get type of data
+```{r}
+  sapply(abalone, class)
+```
+```{r}
+qplot(Length, Rings, data=abalone, color=Sex) + geom_point() + geom_smooth(method="lm")
+```
+  
+```{r}
+qplot(ShellWeight, Rings, data=abalone, color=Sex) + geom_point() + geom_smooth(method="lm")
 ```
 
+   
 ```{r}
-   # Get a summary of data 
-    summary(abalone)
+    modelFitAll <- lm(Rings ~ ., data = abalone) 
+    modelFitMultiple <- lm(Rings ~ ShellWeight + Length, data = abalone)   
+    modelFitShellWeight <- lm(Rings ~ ShellWeight, data = abalone) 
+    plot(resid(modelFitShellWeight), col="Blue")
 ```
-```{r}
-    # Get type of data
-    sapply(abalone, class)
-```
-```{r}
- qplot(Length, Rings, data=abalone, color=Sex) + geom_point() + geom_smooth(method="lm")
-```
+
 
 
 
