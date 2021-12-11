@@ -1,19 +1,107 @@
-<!DOCTYPE html>
-
-<html>
-
-<head>
-
-<meta charset="utf-8" />
-<meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
-
-
-<meta name="author" content="Tracy Morgan" />
-
-
-<title>Resume Assignment</title>
-
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={ACC8143 Classroom Exercises},
+  pdfauthor={Tracy Morgan},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\usepackage[normalem]{ulem}
+% Avoid problems with \sout in headers with hyperref
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content=""/>
 
@@ -630,222 +718,16 @@ body {
   padding-top: 60px;
 }
 </style>
-<script src="C:\Users\tplmo\OneDrive\Documents\R\win-library\4.1\rmarkdown\rmd\h\pandoc\header-attrs.js"></script>
-<script src="C:\Users\tplmo\OneDrive\Documents\R\win-library\4.1\jquerylib\lib\3.6.0\jquery-3.6.0.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="C:\Users\tplmo\OneDrive\Documents\R\win-library\4.1\rmarkdown\rmd\h\bootstrap\css\bootstrap.min.css" rel="stylesheet" />
-<script src="C:\Users\tplmo\OneDrive\Documents\R\win-library\4.1\rmarkdown\rmd\h\bootstrap\js\bootstrap.min.js"></script>
-<script src="C:\Users\tplmo\OneDrive\Documents\R\win-library\4.1\rmarkdown\rmd\h\bootstrap\shim\html5shiv.min.js"></script>
-<script src="C:\Users\tplmo\OneDrive\Documents\R\win-library\4.1\rmarkdown\rmd\h\bootstrap\shim\respond.min.js"></script>
-<style>h1 {font-size: 34px;}
-       h1.title {font-size: 38px;}
-       h2 {font-size: 30px;}
-       h3 {font-size: 24px;}
-       h4 {font-size: 18px;}
-       h5 {font-size: 16px;}
-       h6 {font-size: 12px;}
-       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
-       pre:not([class]) { background-color: white }</style>
-<script src="C:\Users\tplmo\OneDrive\Documents\R\win-library\4.1\rmarkdown\rmd\h\navigation-1.1\tabsets.js"></script>
-<link href="C:\Users\tplmo\OneDrive\Documents\R\win-library\4.1\rmarkdown\rmd\h\highlightjs\default.css" rel="stylesheet" />
-<script src="C:\Users\tplmo\OneDrive\Documents\R\win-library\4.1\rmarkdown\rmd\h\highlightjs\highlight.js"></script>
-<link href="C:\Users\tplmo\OneDrive\Documents\R\win-library\4.1\rmarkdown\rmd\h\pagedtable-1.1\css\pagedtable.css" rel="stylesheet" />
-<script src="C:\Users\tplmo\OneDrive\Documents\R\win-library\4.1\rmarkdown\rmd\h\pagedtable-1.1\js\pagedtable.js"></script>
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
 
-<style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
+\title{ACC8143 Classroom Exercises}
+\author{Tracy Morgan}
+\date{8/27/2021}
 
-<style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
-
-
-
-
-
-
-
-
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-img {
-  max-width:100%;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-.html-widget {
-  margin-bottom: 20px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-summary {
-  display: list-item;
-}
-pre code {
-  padding: 0;
-}
-</style>
-
-
-<style type="text/css">
-.dropdown-submenu {
-  position: relative;
-}
-.dropdown-submenu>.dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-top: -6px;
-  margin-left: -1px;
-  border-radius: 0 6px 6px 6px;
-}
-.dropdown-submenu:hover>.dropdown-menu {
-  display: block;
-}
-.dropdown-submenu>a:after {
-  display: block;
-  content: " ";
-  float: right;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
-  border-width: 5px 0 5px 5px;
-  border-left-color: #cccccc;
-  margin-top: 5px;
-  margin-right: -10px;
-}
-.dropdown-submenu:hover>a:after {
-  border-left-color: #adb5bd;
-}
-.dropdown-submenu.pull-left {
-  float: none;
-}
-.dropdown-submenu.pull-left>.dropdown-menu {
-  left: -100%;
-  margin-left: 10px;
-  border-radius: 6px 0 6px 6px;
-}
-</style>
-
-<script type="text/javascript">
-// manage active state of menu based on current page
-$(document).ready(function () {
-  // active menu anchor
-  href = window.location.pathname
-  href = href.substr(href.lastIndexOf('/') + 1)
-  if (href === "")
-    href = "index.html";
-  var menuAnchor = $('a[href="' + href + '"]');
-
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
-
-  // Navbar adjustments
-  var navHeight = $(".navbar").first().height() + 15;
-  var style = document.createElement('style');
-  var pt = "padding-top: " + navHeight + "px; ";
-  var mt = "margin-top: -" + navHeight + "px; ";
-  var css = "";
-  // offset scroll position for anchor links (for fixed navbar)
-  for (var i = 1; i <= 6; i++) {
-    css += ".section h" + i + "{ " + pt + mt + "}\n";
-  }
-  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
-  document.head.appendChild(style);
-});
-</script>
-
-<!-- tabsets -->
-
-<style type="text/css">
-.tabset-dropdown > .nav-tabs {
-  display: inline-table;
-  max-height: 500px;
-  min-height: 44px;
-  overflow-y: auto;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs > li.active {
-  display: block;
-}
-
-.tabset-dropdown > .nav-tabs > li > a,
-.tabset-dropdown > .nav-tabs > li > a:focus,
-.tabset-dropdown > .nav-tabs > li > a:hover {
-  border: none;
-  display: inline-block;
-  border-radius: 4px;
-  background-color: transparent;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
-  display: block;
-  float: none;
-}
-
-.tabset-dropdown > .nav-tabs > li {
-  display: none;
-}
-</style>
-
-<!-- code folding -->
-
-
-
-
-</head>
-
-<body>
-
-
-<div class="container-fluid main-container">
-
-
+\begin{document}
+\maketitle
 
 <!--radix_placeholder_navigation_before_body-->
 <header class="header header--fixed" role="banner">
@@ -867,164 +749,304 @@ $(document).ready(function () {
 </nav>
 </header>
 <!--/radix_placeholder_navigation_before_body-->
+
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
 
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html"></a>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="index.html">Home</a>
-</li>
-<li>
-  <a href="about.html">About Me</a>
-</li>
-<li>
-  <a href="GoodnessofFit_RSquared.html">R-Squared Challenged</a>
-</li>
-<li>
-  <a href="LinearRegression.html">Machine Learning Example</a>
-</li>
-<li>
-  <a href="ResumeforWebsite.html">Resume</a>
-</li>
-<li>
-  <a href="Data_Project.html">Data Project</a>
-</li>
-<li>
-  <a href="Website.html">Website</a>
-</li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container -->
-</div><!--/.navbar -->
+\hypertarget{r-markdown}{%
+\subsection{R Markdown}\label{r-markdown}}
 
-<div id="header">
+This is an R Markdown document. Markdown is a simple formatting syntax
+for authoring HTML, PDF, and MS Word documents. For more details on
+using R Markdown see \url{http://rmarkdown.rstudio.com}.
 
+When you click the \textbf{Knit} button a document will be generated
+that includes both content as well as the output of any embedded R code
+chunks within the document. You can embed an R code chunk like this:
 
+\begin{verbatim}
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+\end{verbatim}
 
-<h1 class="title toc-ignore">Resume Assignment</h1>
-<h4 class="author">Tracy Morgan</h4>
-<h4 class="date">8/31/2021</h4>
+\hypertarget{including-plots}{%
+\subsection{Including Plots}\label{including-plots}}
 
-</div>
+You can also embed plots, for example:
 
+\begin{figure}
+\centering
+\includegraphics{TMorgan4640587082721_files/figure-latex/pressure-1.pdf}
+\caption{THIS IS A CAPTION}
+\end{figure}
 
-<hr />
-<div id="academic-employment" class="section level2">
-<h2>Academic Employment</h2>
-<div id="holmes-community-college-goodman-ms-2020---present" class="section level3">
-<h3>Holmes Community College, Goodman, MS 2020 - present</h3>
-<p>Accounting and Business Instructor, Associate Department Chair for Business and Accounting, Student Advisor</p>
-</div>
-<div id="mississippi-college-clinton-ms-august-2018-present" class="section level3">
-<h3>Mississippi College, Clinton, MS August 2018 – present</h3>
-<p>Adjunct Accounting and Business Faculty and Canvas Consultant for the School of Business</p>
-</div>
-<div id="mississippi-virtual-community-college-instructor-august-2011-present" class="section level3">
-<h3>Mississippi Virtual Community College Instructor August 2011 – present</h3>
-<p>Online Teacher for various MSVCC colleges: Hinds Community College, Holmes Community Colege, Mississippi Gulf Cost Community College</p>
-</div>
-<div id="pearson-faculty-advisor-hoboken-nj-july-2019-december-2020" class="section level3">
-<h3>Pearson, Faculty Advisor, Hoboken, NJ July 2019 – December 2020</h3>
-<p>National Trainer, Educational Consultant and Subject Matter Expert</p>
-</div>
-<div id="hinds-community-college-full-time-instructor-august-2010---december-2017" class="section level3">
-<h3>Hinds Community College, Full-time Instructor August 2010 - December 2017</h3>
-<p>Accounting and Business Instructor, Alpha Beta Gamma Advisor</p>
-</div>
-</div>
-<div id="education" class="section level2">
-<h2>Education</h2>
-<div id="mississippi-state-university-starkville-ms" class="section level3">
-<h3>Mississippi State University, Starkville, MS</h3>
-<p>Currently enrolled in the Master of Taxation program – August 2021 - presen</p>
-</div>
-<div id="jackson-state-univsersity-jackson-ms" class="section level3">
-<h3>Jackson State Univsersity, Jackson, MS</h3>
-<p>Additional Graduate Work – May 2013</p>
-</div>
-<div id="mississippi-college-university-clinton-ms" class="section level3">
-<h3>Mississippi College University, Clinton, MS</h3>
-<p>Additional Graduate Work – August 2013</p>
-<p>Masters in Business Administration – May 1994</p>
-<p>Master of Ars in Business Administration, Accounting Emphais – May 1990</p>
-</div>
-</div>
-<div id="licenses-and-certifications" class="section level2">
-<h2>Licenses and Certifications</h2>
-<p>CPA, State of Mississippi, License # 4554</p>
-<p>American Institute of CPAs</p>
-<p>Mississippi Society of CPAs, Committee on Education</p>
-<p>Completed the APPQM training, Quality Matters</p>
-</div>
-<div id="technology-in-the-classroom" class="section level2">
-<h2>Technology in the Classroom</h2>
-<p>YouTube | Snag-It | ZOOM | Camtasia | Canvas | Blackboard | Moodle | Pearson MyLab | CengageNow | Cengage Mindtap | McGraw Hill Connect | Campus Knot! | Canvas Studio | Kahoot! | Padlet |Microsoft Office | Salesforce</p>
-<p>##Courses Taught</p>
-<p>Principles of Accounting I and II | Accounting Survey | Business Statistics | Personal Finance | Legal Environment of Business | Inroduction to Business | Introduction to Marketing | Computer Applications</p>
-</div>
+Note that the \texttt{echo\ =\ FALSE} parameter was added to the code
+chunk to prevent printing of the R code that generated the plot.
+
+\hypertarget{exercise-1}{%
+\section{Exercise 1}\label{exercise-1}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Add echo=FALSE to the following code in your rmarkdown file what
+  happens? The code disappears and the output remains (see cars above)
+\item
+  Add include=FALSE to the following code in your rmarkdown file what
+  happens? The code and the results (output) are removed!
+\item
+  Add a caption to the following code in your rmarkdown file A caption
+  is added titled THIS IS A CAPTION which appears below the plot graph.
+\end{enumerate}
+
+\hypertarget{inline-code-example}{%
+\section{Inline Code example}\label{inline-code-example}}
+
+You can use the \texttt{\textless{}-} to store information in objects.
+\texttt{object\ \textless{}-\ information}. The above code stores dist
+in cars\_variable.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+\NormalTok{cars}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\FunctionTok{paste}\NormalTok{(cars\_variable)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    dist
+## 1     2
+## 2    10
+## 3     4
+## 4    22
+## 5    16
+## 6    10
+## 7    18
+## 8    26
+## 9    34
+## 10   17
+## 11   28
+## 12   14
+## 13   20
+## 14   24
+## 15   28
+## 16   26
+## 17   34
+## 18   34
+## 19   46
+## 20   26
+## 21   36
+## 22   60
+## 23   80
+## 24   20
+## 25   26
+## 26   54
+## 27   32
+## 28   40
+## 29   32
+## 30   40
+## 31   50
+## 32   42
+## 33   56
+## 34   76
+## 35   84
+## 36   36
+## 37   46
+## 38   68
+## 39   32
+## 40   48
+## 41   52
+## 42   56
+## 43   64
+## 44   66
+## 45   54
+## 46   70
+## 47   92
+## 48   93
+## 49  120
+## 50   85
+\end{verbatim}
+
+Other languages This is SQL
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(DBI)}
+\NormalTok{db }\OtherTok{=} \FunctionTok{dbConnect}\NormalTok{(RSQLite}\SpecialCharTok{::}\FunctionTok{SQLite}\NormalTok{(), }\AttributeTok{dbname =} \StringTok{"C:/Users/tplmo/OneDrive/Desktop/ACC8143 Files/ACC8143/03{-}Data{-}file{-}classroom{-}exercise{-}Chinook\_Sqlite.sqlite"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \FunctionTok{count}\NormalTok{(}\OperatorTok{*}\NormalTok{) }
+\KeywordTok{FROM}\NormalTok{ pragma\_table\_info(}\OtherTok{"Customer"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+1 records
+
+count(*)
+
+0
+
+\hypertarget{parameters}{%
+\section{Parameters}\label{parameters}}
+
+The YAML code above stores dist and speed in params\$cars\_var.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+\NormalTok{cars}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\FunctionTok{paste}\NormalTok{(params}\SpecialCharTok{$}\NormalTok{cars\_var)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    dist
+## 1     2
+## 2    10
+## 3     4
+## 4    22
+## 5    16
+## 6    10
+## 7    18
+## 8    26
+## 9    34
+## 10   17
+## 11   28
+## 12   14
+## 13   20
+## 14   24
+## 15   28
+## 16   26
+## 17   34
+## 18   34
+## 19   46
+## 20   26
+## 21   36
+## 22   60
+## 23   80
+## 24   20
+## 25   26
+## 26   54
+## 27   32
+## 28   40
+## 29   32
+## 30   40
+## 31   50
+## 32   42
+## 33   56
+## 34   76
+## 35   84
+## 36   36
+## 37   46
+## 38   68
+## 39   32
+## 40   48
+## 41   52
+## 42   56
+## 43   64
+## 44   66
+## 45   54
+## 46   70
+## 47   92
+## 48   93
+## 49  120
+## 50   85
+\end{verbatim}
+
+\hypertarget{tables}{%
+\section{Tables}\label{tables}}
+
+\textbf{knitr kable}
+
+Kable Table
+
+speed
+
+dist
+
+4
+
+2
+
+4
+
+10
+
+7
+
+4
+
+7
+
+22
+
+8
+
+16
+
+\textbf{default table}
+
+\begin{verbatim}
+##   speed dist
+## 1     4    2
+## 2     4   10
+## 3     7    4
+## 4     7   22
+## 5     8   16
+\end{verbatim}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{exercise-2}{%
+\section{Exercise 2}\label{exercise-2}}
+
+Numbered List, Bullets, Line, Block quote, Strikethrough, and Bold
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  List Item 1
+\item
+  List Item 2
+\item
+  List Item 3
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  bullets
+\item
+  bullets
+\end{itemize}
+
+Line:
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{quote}
+This is a block quote. It doesn't look like the example
+\end{quote}
+
+\sout{This is my strikethrough example}
+
+\textbf{BOLD: Thanks for the step-by-step lectures!}
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
+
 <!--radix_placeholder_navigation_after_body-->
 <!--/radix_placeholder_navigation_after_body-->
 
-
-
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
-</script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open');
-  });
-});
-</script>
-
-<!-- code folding -->
-
-
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
-
-</body>
-</html>
+\end{document}

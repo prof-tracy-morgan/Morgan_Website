@@ -2,6 +2,7 @@
 title: "Data Project"
 description: |
   Abalone Data from Kaggle 
+  KNN Code found on Stuido-pubs
 author:
   - name: Tracy Morgan
     
@@ -18,26 +19,30 @@ Data Set: Abalone from Kaggle
 ABALONE:  a marine snail.  You can read about it here in Wikipedia!  
 Data Description: 4.177 records of measurements, age, and sex of these oyster-like creatures called Abalone.  
 Descriptive Stats: There are some large specimen outliers included in the data set.  
-Machine Learning Model:
-Run Model and Find Results:
-Describe Results:  
-
+Machine Learning Model: KNN 
+I am trying to use this data set to predict F, M, or I based on collected variables.    
 
 ```{r}
-library(caret)
-library(ggplot2)
-library(tidyverse)
-library(readxl)
-library(psych)
-library(knitr)
+ library(ggplot2)
+  library(caret)
+```
+
+Read the Data File: 
+
+```{r}
+    # Read CSV data
+data_abalone <- read.csv("./abalone.csv", header=F)
 
 ```
+
 ```{r}
 library(readr)
-abalone <- read_csv("abalone.csv")
+abalone <- read.csv(file = "abalone.csv")
 View(abalone)
+#view the whole dataset
 
 ```
+
 ```{r,echo=TRUE}
 list(abalone)
 ```
@@ -48,61 +53,58 @@ list(abalone)
                            'VisceraWeight', 'ShellWeight', 'Rings')
 
 ```
+
 # Get a summary of data 
 ```{r}
  summary(abalone)
 ```
 # Get type of data
+
 ```{r}
   sapply(abalone, class)
 ```
 
-# Plotting Age Linear Models
-According to correlation results more correlation is between ShellWeight and Rings and Length and Rings
-
+# Summary of Rings Column
 ```{r}
-qplot(Length, Rings, data=abalone, color=Sex) + geom_point() + geom_smooth(method="lm")
+summary(abalone$Rings)
 ```
+# Honestly, I'm not exactly sure what this code is doing.  It looks like the results from rings are organized into three groups: Young, adult, and old.  
+```{r}
+abalone$Rings <- as.numeric(abalone$Rings)
+abalone$Rings <- cut(abalone$Rings, br=c(-1,8,11,35), labels = c("young", 'adult', 'old'))
+abalone$Rings <- as.factor(abalone$Rings)
+summary(abalone$Rings)
+
+```
+```{r}
+aba <- abalone
+aba$Sex <- NULL
+normalize <- function(x) {
+  return ((x - min(x)) / (max(x) - min(x)))
+}
+aba[1:7] <- as.data.frame(lapply(aba[1:7], normalize))
+summary(aba$ShuckedWeight)
+```
+```{r}
+set.seed(100)
+ind <- sample(2, nrow(aba), replace=TRUE, prob=c(0.8,0.2))
+KNNtrain <- aba[ind==1,]
+KNNtest <- aba[ind==2,]
+library(class)
+help("knn")
+
+```
+ 
+Ok, So I was able to run the code to this point.  HOwever, when I run the following code, I get an error message saying that the train and the class are different lengths. 
+
+KNNpred <- knn(train = KNNtrain[1:7], test = KNNtest[1:7], cl = KNNtrain$rings, k = 58)
+KNNpred
+
+The weird thing is that I got all of this to work (run), but the website wouldn't build.  
+
+Here's the results from the code if it were to work correctly: 
+KNNpred
+young adult   old 
+  289   468    81 
   
-```{r}
-qplot(ShellWeight, Rings, data=abalone, color=Sex) + geom_point() + geom_smooth(method="lm")
-```
-# Comparison linear models
-We will compare some models in order to select the best
-   
-```{r}
-    modelFitAll <- lm(Rings ~ ., data = abalone) 
-    modelFitMultiple <- lm(Rings ~ ShellWeight + Length, data = abalone)   
-    modelFitShellWeight <- lm(Rings ~ ShellWeight, data = abalone) 
-    plot(resid(modelFitShellWeight), col="Blue")
-```
-```{r}
-anova(modelFitMultiple, modelFitShellWeight, test="Chisq")
-```
-```{r}
-    anova(modelFitAll, modelFitShellWeight, test="Chisq")
-```
-
-# Seems than better model is taking into account all variables to predict Rings
-```{r}
-summary(modelFitAll)
-```
-```{r}
-   plot(modelFitAll)
-```
-```{r}
-   # Rings linear model
-    inTrainRings <- createDataPartition(y=abalone$Rings, p=0.75, list=FALSE)
-    trainingRings <- abalone[inTrainRings,]
-    testingRings <- abalone[-inTrainRings,]
-    set.seed(1234)
-    modelFitRings <- train(Rings~., data=trainingRings, method="lm")
-    #predict(modelFitRings, data = testingRings)
-    sqrt(sum((modelFitRings$fitted - trainingRings$Rings)^2))
-```
-```{r}
-sqrt(sum((predict(modelFitRings, newdata = testingRings) - testingRings$Rings)^2))
-```
-    
-
 
