@@ -35,11 +35,10 @@ data_abalone <- read.csv("./abalone.csv", header=F)
 
 ```
 
-```{r}
+```{r,echo=TRUE}
 library(readr)
 abalone <- read.csv(file = "abalone.csv")
-View(abalone)
-#view the whole dataset
+head(abalone,5)
 
 ```
 
@@ -47,7 +46,7 @@ View(abalone)
 list(abalone)
 ```
 
-```{r}
+```{r, echo=TRUE}
    # Create a column name from abalone.txt to get a description of each record value
     colnames(abalone) <- c('Sex', 'Length', 'Diameter', 'Height', 'WholeWeight', 'ShuckedWeight',
                            'VisceraWeight', 'ShellWeight', 'Rings')
@@ -55,21 +54,21 @@ list(abalone)
 ```
 
 # Get a summary of data 
-```{r}
+```{r,echo=TRUE}
  summary(abalone)
 ```
 # Get type of data
 
-```{r}
+```{r,echo=TRUE}
   sapply(abalone, class)
 ```
 
 # Summary of Rings Column
-```{r}
+```{r, echo=TRUE}
 summary(abalone$Rings)
 ```
 # Honestly, I'm not exactly sure what this code is doing.  It looks like the results from rings are organized into three groups: Young, adult, and old.  
-```{r}
+```{r, echo=TRUE}
 abalone$Rings <- as.numeric(abalone$Rings)
 abalone$Rings <- cut(abalone$Rings, br=c(-1,8,11,35), labels = c("young", 'adult', 'old'))
 abalone$Rings <- as.factor(abalone$Rings)
@@ -85,7 +84,7 @@ normalize <- function(x) {
 aba[1:7] <- as.data.frame(lapply(aba[1:7], normalize))
 summary(aba$ShuckedWeight)
 ```
-```{r}
+```{r,echo=TRUE}
 set.seed(100)
 ind <- sample(2, nrow(aba), replace=TRUE, prob=c(0.8,0.2))
 KNNtrain <- aba[ind==1,]
@@ -112,17 +111,17 @@ Ok, So maybe KNN didn't go so well, but I did find some cool looking plots:
 # Plotting Age Linear Models
 According to correlation results more correlation is between ShellWeight and Rings and Length and Rings
 
-```{r}
+```{r echo=TRUE}
 qplot(Length, Rings, data=abalone, color=Sex) + geom_point() + geom_smooth(method="lm")
 ```
   
-```{r}
+```{r, echo=TRUE}
 qplot(ShellWeight, Rings, data=abalone, color=Sex) + geom_point() + geom_smooth(method="lm")
 ```
 # Comparison linear models
 We will compare some models in order to select the best
    
-```{r}
+```{r, echo=TRUE}
     modelFitAll <- lm(Rings ~ ., data = abalone) 
     modelFitMultiple <- lm(Rings ~ ShellWeight + Length, data = abalone)   
     modelFitShellWeight <- lm(Rings ~ ShellWeight, data = abalone) 
