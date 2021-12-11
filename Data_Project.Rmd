@@ -42,10 +42,6 @@ head(abalone,5)
 
 ```
 
-```{r,echo=TRUE}
-list(abalone)
-```
-
 ```{r, echo=TRUE}
    # Create a column name from abalone.txt to get a description of each record value
     colnames(abalone) <- c('Sex', 'Length', 'Diameter', 'Height', 'WholeWeight', 'ShuckedWeight',
