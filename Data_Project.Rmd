@@ -128,6 +128,6 @@ We will compare some models in order to select the best
     modelFitShellWeight <- lm(Rings ~ ShellWeight, data = abalone) 
     plot(resid(modelFitShellWeight), col="Blue")
 ```
-The End
+The End!
 
 
