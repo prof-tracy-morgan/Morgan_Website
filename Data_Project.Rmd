@@ -107,4 +107,27 @@ KNNpred
 young adult   old 
   289   468    81 
   
+Ok, So maybe KNN didn't go so well, but I did find some cool looking plots:
+
+# Plotting Age Linear Models
+According to correlation results more correlation is between ShellWeight and Rings and Length and Rings
+
+```{r}
+qplot(Length, Rings, data=abalone, color=Sex) + geom_point() + geom_smooth(method="lm")
+```
+  
+```{r}
+qplot(ShellWeight, Rings, data=abalone, color=Sex) + geom_point() + geom_smooth(method="lm")
+```
+# Comparison linear models
+We will compare some models in order to select the best
+   
+```{r}
+    modelFitAll <- lm(Rings ~ ., data = abalone) 
+    modelFitMultiple <- lm(Rings ~ ShellWeight + Length, data = abalone)   
+    modelFitShellWeight <- lm(Rings ~ ShellWeight, data = abalone) 
+    plot(resid(modelFitShellWeight), col="Blue")
+```
+The End
+
 
